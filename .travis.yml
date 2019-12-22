@@ -1,10 +1,14 @@
 language: generic
 jobs:
   include:
-    - stage: build docker image
-      script:
-        - make docker -C 1
-    - stage: push docker image
-      script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - make push -C 1
+  - stage: build docker image
+    script:
+    - make docker -C 1
+  - stage: push docker image
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - make push -C 1
+env:
+  global:
+  - secure: Oho1jLtFgkC7VAH2qkDtlcmNCo9TkExfYYLDnzwrkiYG71PJkwBxM/jQckmBEoTTJqxti8eGrDJf0N8Ck0YsB09xMoF5CNggyKDFuZgCwzhUtnQqfrx19ancw+gKD6a3f6MFJNlKcMVY6aXNqYL6Xmr413Z4kFAhrOxBvDz5clG/LpE4tGFutPBp9pv1PM9rt8OEAw6Wymw8zleltc8IB2zgfrMsvcP06/yxS0MLqMRBnirv8EddUhJ/S0z577/AZHC1EHuVt8f1wJ1gEStdolX5ZreN0uTKXgtWPgJIpbThl/i1KaVolpSIpJ9auTVUW0MB6RVPfjG4ZiImdGBeJRnB3/Vlkv4EjMeOq0GParL9s5mt/HwliDfKicOv2rVOKenNw5eV03jFwHslHJRwwEtKbXrgA/2o1zHEUzdfbklL8KX6RJVIr75dYDIC1TebrCVfcEZQ4dxb3veZYjHZLmcZcv/la+N4DUQu0gmm2WLud7w+J9MSY5ilLjcllzI2P7tFq7cjTGSunn+cR0CTY5OIXuBIuKgiF3cnGVdr3pbAmIjJWdsF6QHY5VHnp+ekewED6x6bGcM22Q7HGfkcjla9mUxbc2l+oHp8Qfx3KIJoUNgvcOazgmStyhGSTyyhtTdUtwTocRwVHU6sGxzJZAEkLw7I+v+KACFHk6qnh4k=
+  - secure: DPHm2zs8xm5VIsnTB0Lm3Wr+lttuD+oTUW4nucoNzon6FszOFvX608zzRGzjtnddzqPI7qgFJkF7OroYgBYNnnggSkbfu06uLaeNsgLmbJuluYuntCk6yxWQ5txIwbZETHAVDCaPvqWSC7Kyugtfc1QOyydKpjThhjlTZZb1v8YxZOw4kSwtIup7yl39QI5I+yq8V3Y6HG1hNgOP6Y8IgdQzA+0911eKMPAX0IHhJyZ+VOgxXHbAYIQa2sFatCUDXzdzALCEYuu8sh02PyGHK9WgmPr5ruLF9QlGdE+TxVKhgkSk+qxxSwV9xcPeOGrc0h1z9yV34bO4TTQ593L29QjUfvQR4hbZ33tcp8+6n2yMu2DY4C5393weFT2/wI63JAUt97RjPBYCXP/4sRVXeYUME294eYaUcnq1BFQle4nIoaZgmXhQyzCRMc3hTN3HyDcD6fuRT3rGChHWURuL9wGb3wNJUnsp/qu7+syoQqMEILZHAu5TJ+1PQiRpvueSbm7tJ/zUWTSC/Ium5LEu05wu8OcPsDwqXK1e4WsZnJhsGYUk2p6aX5moqDT6fUIrHKHu0aGgNGXSnTPg6QO2Hx5gbYRRlzWSvLycaA8Xsp2lBxY6DRz1V12E4vySWNsq3WQa4Q1gRedwQFyV9O1WpDpVDRCthww/pud9ALsGWQw=
