@@ -3,12 +3,11 @@ jobs:
   include:
     - stage: build and push docker image
       script:
-        - env
         - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
         - make docker push -C 1
       env:
         - DOCKER_USERNAME=runyontr
-        - secure: wEZ5iEFRnQ4Vzgv50JtttMrgI9aqo/7Krq6zkLEBTWKjXPWvldGS3pwaKTi01zZ0064JWsa+cvDwQcYrAMfy4cIcnGwajdGGzp2zidFWQaQEvz5D8YPD5UAal4JLwF9FN2MUBNwDRfmd6wKuKd+E+GsC0g1aAni0RkHsjvqb7eFeWVk9XbLkhUvsMsW3MdI9JVIaseQC/97s43mIOBAjypXPYBlnlsGr+1a+VASTE/Ieh81sGH42+A6bx9j+teg0P1PrmFd1uTpfcDdv0Zwp2ppeuGjgrBwg+Oyn5lAFxLLljj7nj2BIeD51ixy3vsKt2/Z1VQRNjOzk9NnVaPBMPZUxfBZc/aHi4/sBEnHjW2JHgpADsK2GY0TLSYiXPXRAml4tZs4ogjF6yNb8ZA//IAN0Kw32SBKbkWggKY+hcqppWPsbHJB4dvleE8CwE+vXMd4hMEtE18qzKvuabLDnD+cZuQmGlBdtugBdbZEjMevRD+nGDRoFGE5k9bYixoVhQSjmyTCJ0BG356dLeeXOsOIgKzpS+S+QpjJle5khFJO486YNxL+zcRec/x2hywVq9IDWx5tpY96TBzjvD/Qcr6KjmJYVf7000xbX5aVL0aAUONQoCJ0VjMAsAW2x6qrbctJA6io8GXJfZNeo3lInBIiPH9KiC0f0gXyRnvn/nKY=
+        - secure: nXFF6zeD0JMDbSIFZcsr+HESn862h+4ebWiCfFD3aNBMT0od6z1zJrhRY7UGTHjHB5CKnVsTBCZSl8dUD2jpV2i+aQoDVw6zC27jle8ymjFCnfSyJNLPxSVIhR5rE9wOA7NQNGEDodTsZVWGU2oCknL7wTNxYnaRiAkOoBmWgWQhsuI33a+8pfLRJeQVF76EyQzQ5uzkli8VDVwVo3HFEnR/azFiqs1s5MsSRZSDqr958x5chhLT7Eh0kvf1/67G7o11IcG4nMC9z0gwbncCwqB/gyipmXsNGlMoAFIVOsJR3VWyl6J+mNe1wNWZuX3BI6sOmSRjI2kE+7bx6FlzNRMG1QrAfNfbUpLI1JU26lCOeMvuyEM1638pRYH93Dj5txloBpsXfm5zet7+rC4P0cGkVlBrIFT/HONNNDodZ0v/YGH1gXkxt8gg9Qp68GF/gpFAScA2BVKmRWmW7/wzLWu+dfQ8z+QlVTxlwB5HTd8zgWDIgjhZfqsd+t51WwITeYFpQOkhRJp/UFgs+CttZGao1dkE8vIYnh/KfGXP5UNjMQZKMFln3fiJnvKATwBJFwnu7Xw2FVDh3pqmm87ZJ2KNc7s4fDhEmbvE0OIEPNMv0adWKawRCMB4mawt5WuRqV7O7KwXcnhlzq+Ji3meq6ZWsl4N7b5nbRGeboke43A=
     - stage: deploy new image
       script:
         - kubectl apply -f 2/ || true
