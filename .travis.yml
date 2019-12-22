@@ -11,3 +11,5 @@ jobs:
     - stage: deploy new image
       script:
         - kubectl apply -f 2/ || true
+      env:
+        - CREDENTIALS=something_real
