@@ -7,7 +7,7 @@ jobs:
         - make docker push -C 1
       env:
         - DOCKER_USERNAME=runyontr
-        - secure: MUvjqBuYjkic2ykQPgf8Z2ha4GGJwzXNjT5BhuTpEKp08V9FZaopdK6Hcsj0Hn2ShOtDxW+jVTjpEQiYYjB3DphM1misdJJe2Ym0gn90dODDLihX/7qjjgvqyDGqV6u8GOtc8yTyFnE3HovLIfHl/sdXI5MZVqGm0NlN7zQZ63NOZZJCmadupbAAjQ6GYf0WtPvkmjpXZDWcQ74UZot96jT9UmA6rV8+ViKT/Zdax6zgi+MMoriq2ozDXC1P0fVKe3Q2kucFC4FuuS4D3q5nVNyHNbNfFkCdWkCDCraremSvHoGlsVGWC/8Hbqmvzj8lQv+0ciYDVtOTQ2l4l6Wwkwdt5DuVk8pKl06XClVU6zJ3joAvkLBCLsycWRSB/AKqTopg0fUa5aDdHrxERo7q2pSrOGRXKiU4z4ehVAZjKb6FNTErzFNLH6bvlxg9jLr6+v1HfHZkBnSg3pUCTNcptEnIE+5dxUSwSTCcJe+5dH3BX2UHMMOG+oFZIW4IT+CgvKybQRoOKhLteSISJ4kqzj1ZOtE8TKLY+14kP55zI/F+/aLdLO/gQdYPafMuLp7jXUuMwU/GYMpGTtqVvxznoY5b/rO/GI1dm9XFw//A6SLNedyyaQwOT2FF2ax2FsnsvwAWNu5ZqwIOAMWDlyNBaoE+r6VRQKB67LelyMbgTZ0=
+        - secure: R3saXVX9QOeK8WJY87vKk5B4ve03Jleu62DDTdOPOOk3qPjy/bn4OiyiXkfSc1XagqehBAD6q1XbUGUl7u50+UaXkiqXBNT7Xfy5M427AxLI3jJHgG4Q29WgnLe9Hp0b/nbm8xkIFMImRVD6UTIwqmM+fNKYzDa7k2BkFrgzlebd+gOVg6/358zHWV/gyZEKNy8sYaLWlPEH6mI4BUWDZgjRcGlrmhxsoL9gZBhOq6lnPOVJ+1uC1Ld7haH47xQ9PMcobOhGGpEuRI54eonafvubLxGhwQaCpRtvOemXWcHZZuczPaGrFL2Ou8tlK//sh4fBd8t1it4FWmyMe9l7hs6Ubm3/j0EhJuWytLrhAKCUKblKFLXx8qIUaVg7ndXjROO7Xvhw/tXPqH2hVypOR/CgBrd7yc9+97QciSffg7JhbeFneggDiiZGtEzJLFnmnJDCnw581JWfq+Hu5nDAs7o3Sh5VYyouCugmQBVNONLtU69LytqyzTxLhCtj2s+g/IIQDQ2l3uqaeS7+8cyb58XP/CTWqGbSnck0BcB17YPptHEJejYI1+V6rLXPJVQ9QcR1EpUyEAo4V7zlStrSrozFm2/E/hzYQ3f/sCntWk8drzbg2gxqilx0gAdeH6jc4j92rt/gr/zxspfpJz7TmpcWKTBpqZpfTGAZ0wmYKAo=
     - stage: deploy new image
       script:
         - kubectl apply -f 2/ || true
