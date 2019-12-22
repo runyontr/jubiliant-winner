@@ -1,15 +1,15 @@
 language: generic
 jobs:
   include:
-    - stage: build and push docker image
+  - stage: build and push docker image
+    script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - make docker push -C 1
+    env:
+    - DOCKER_USERNAME=runyontr
+    - secure: MUvjqBuYjkic2ykQPgf8Z2ha4GGJwzXNjT5BhuTpEKp08V9FZaopdK6Hcsj0Hn2ShOtDxW+jVTjpEQiYYjB3DphM1misdJJe2Ym0gn90dODDLihX/7qjjgvqyDGqV6u8GOtc8yTyFnE3HovLIfHl/sdXI5MZVqGm0NlN7zQZ63NOZZJCmadupbAAjQ6GYf0WtPvkmjpXZDWcQ74UZot96jT9UmA6rV8+ViKT/Zdax6zgi+MMoriq2ozDXC1P0fVKe3Q2kucFC4FuuS4D3q5nVNyHNbNfFkCdWkCDCraremSvHoGlsVGWC/8Hbqmvzj8lQv+0ciYDVtOTQ2l4l6Wwkwdt5DuVk8pKl06XClVU6zJ3joAvkLBCLsycWRSB/AKqTopg0fUa5aDdHrxERo7q2pSrOGRXKiU4z4ehVAZjKb6FNTErzFNLH6bvlxg9jLr6+v1HfHZkBnSg3pUCTNcptEnIE+5dxUSwSTCcJe+5dH3BX2UHMMOG+oFZIW4IT+CgvKybQRoOKhLteSISJ4kqzj1ZOtE8TKLY+14kP55zI/F+/aLdLO/gQdYPafMuLp7jXUuMwU/GYMpGTtqVvxznoY5b/rO/GI1dm9XFw//A6SLNedyyaQwOT2FF2ax2FsnsvwAWNu5ZqwIOAMWDlyNBaoE+r6VRQKB67LelyMbgTZ0=
+  - stage: deploy new image
       script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - make docker push -C 1
+      - kubectl apply -f 2/ || true
       env:
-        - DOCKER_USERNAME=runyontr
-        - secure: nXFF6zeD0JMDbSIFZcsr+HESn862h+4ebWiCfFD3aNBMT0od6z1zJrhRY7UGTHjHB5CKnVsTBCZSl8dUD2jpV2i+aQoDVw6zC27jle8ymjFCnfSyJNLPxSVIhR5rE9wOA7NQNGEDodTsZVWGU2oCknL7wTNxYnaRiAkOoBmWgWQhsuI33a+8pfLRJeQVF76EyQzQ5uzkli8VDVwVo3HFEnR/azFiqs1s5MsSRZSDqr958x5chhLT7Eh0kvf1/67G7o11IcG4nMC9z0gwbncCwqB/gyipmXsNGlMoAFIVOsJR3VWyl6J+mNe1wNWZuX3BI6sOmSRjI2kE+7bx6FlzNRMG1QrAfNfbUpLI1JU26lCOeMvuyEM1638pRYH93Dj5txloBpsXfm5zet7+rC4P0cGkVlBrIFT/HONNNDodZ0v/YGH1gXkxt8gg9Qp68GF/gpFAScA2BVKmRWmW7/wzLWu+dfQ8z+QlVTxlwB5HTd8zgWDIgjhZfqsd+t51WwITeYFpQOkhRJp/UFgs+CttZGao1dkE8vIYnh/KfGXP5UNjMQZKMFln3fiJnvKATwBJFwnu7Xw2FVDh3pqmm87ZJ2KNc7s4fDhEmbvE0OIEPNMv0adWKawRCMB4mawt5WuRqV7O7KwXcnhlzq+Ji3meq6ZWsl4N7b5nbRGeboke43A=
-    - stage: deploy new image
-      script:
-        - kubectl apply -f 2/ || true
-      env:
-        - CREDENTIALS=something_real
+      - CREDENTIALS=something_real
