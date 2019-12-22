@@ -1,0 +1,26 @@
+name: litecoind
+home: ""
+sources: []
+version: 2.0.0
+description: Sample Chart file for litecoind
+keywords: []
+maintainers:
+- name: runyontr
+  email: tom@runyon.dev
+  url: ""
+  xxx_nounkeyedliteral: {}
+  xxx_unrecognized: []
+  xxx_sizecache: 0
+engine: ""
+icon: ""
+apiversion: ""
+condition: ""
+tags: ""
+appversion: ""
+deprecated: false
+tillerversion: ""
+annotations: {}
+kubeversion: ""
+xxx_nounkeyedliteral: {}
+xxx_unrecognized: []
+xxx_sizecache: 0

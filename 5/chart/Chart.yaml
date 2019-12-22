@@ -1,0 +1,6 @@
+name: litecoind
+version: 2.0.0
+description: Sample Chart file for litecoind
+maintainers:
+- name: runyontr
+  email: tom@runyon.dev
