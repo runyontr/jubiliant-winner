@@ -1,0 +1,5 @@
+deploy:
+  provider: script
+  script: make docker -C 1
+  on:
+    branch: master
