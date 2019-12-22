@@ -1,13 +1,8 @@
-dist: trusty
-language: go
-go:
-  - 1.13.5
-jobs:
-  include:
-    - stage: build docker image
-      script:
-        - make docker -C 1
-    - stage: push docker image
-      script:
-        - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-        - make push -C 1
+language: generic
+sudo: required
+install:
+  - apt-get install make
+script:
+  - make docker -C 1
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - make push -C 1
