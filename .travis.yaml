@@ -1,5 +1,7 @@
 dist: trusty
-language: minimal
+language: go
+go:
+  - 1.13.5
 jobs:
   include:
     - stage: build docker image
